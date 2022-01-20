@@ -184,15 +184,16 @@ public class Principal extends javax.swing.JFrame {
         menuMetodos1 = new javax.swing.JMenu();
         menuPresupuesto = new javax.swing.JMenu();
         menuAyuda = new javax.swing.JMenu();
-        meContenido = new javax.swing.JMenuItem();
         meSoporte = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        meAcerca = new javax.swing.JMenuItem();
+        meContenido = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(".: PROYECTO - Costos y Presupuestos :.");
         setExtendedState(6);
+        setLocation(new java.awt.Point(0, 0));
         setMinimumSize(new java.awt.Dimension(720, 600));
+        setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         barraHerramientas.setFloatable(false);
@@ -346,7 +347,6 @@ public class Principal extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.5;
         getContentPane().add(panel1, gridBagConstraints);
 
-        barraMenu.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         barraMenu.setMaximumSize(new java.awt.Dimension(69, 32769));
         barraMenu.setPreferredSize(new java.awt.Dimension(4, 25));
 
@@ -450,23 +450,24 @@ public class Principal extends javax.swing.JFrame {
 
         menuAyuda.setText("Ayuda");
 
+        meSoporte.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        meSoporte.setText("Contactar al Soporte");
+        meSoporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meSoporteActionPerformed(evt);
+            }
+        });
+        menuAyuda.add(meSoporte);
+        menuAyuda.add(jSeparator2);
+
         meContenido.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        meContenido.setText("Contenido e Indice");
+        meContenido.setText("Acerca de Inventario");
         meContenido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 meContenidoActionPerformed(evt);
             }
         });
         menuAyuda.add(meContenido);
-
-        meSoporte.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        meSoporte.setText("Contactar al Soporte Tecnico");
-        menuAyuda.add(meSoporte);
-        menuAyuda.add(jSeparator2);
-
-        meAcerca.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        meAcerca.setText("Acerca de Inventario");
-        menuAyuda.add(meAcerca);
 
         barraMenu.add(menuAyuda);
 
@@ -639,7 +640,7 @@ public class Principal extends javax.swing.JFrame {
                         "\n > Metodo Promedio: para usar el metodo promedio puedes optar por" +
                         "\nel acceso rapido en la barra de herramientas o en el menu" +
                         "\nprincipal(Ctrl + L)." +
-                        "\n - PRESUPUESTOS -" +
+                        "\n\n - PRESUPUESTOS -" +
                         "\npara usar el presupuesto(Maestro) primero debes ingresar los" +
                         "\ndatos; puedes acceder al ingreso de datos desde la barra de" +
                         "\n menu(Presupuestos) o desde el propio menu.\n" +
@@ -648,7 +649,7 @@ public class Principal extends javax.swing.JFrame {
                         "\nmenu principal(Ctrl + M).";
         
         JOptionPane.showMessageDialog(this, texto,
-                "Contenido e Indice", JOptionPane.INFORMATION_MESSAGE);
+                "Acerca de Inventario - Contenido", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_meContenidoActionPerformed
 
     private void menuPresupuestoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuPresupuestoMousePressed
@@ -665,6 +666,16 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         abrirPanelPresupuestoMaestro();
     }//GEN-LAST:event_botonMaestroActionPerformed
+
+    private void meSoporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meSoporteActionPerformed
+        // TODO add your handling code here:
+        String texto = " - Aarón Rojas Vera -" +
+                        "\nGitHub : github.com/Aaron-Shrike" +
+                        "\nLinkedin : linkedin.com/in/aaron-rojas-vera/";
+        
+        JOptionPane.showMessageDialog(this, texto,
+                "Contacto", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_meSoporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -733,7 +744,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel imgCostosGrafica;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JMenuItem meAcerca;
     private javax.swing.JMenuItem meContenido;
     private javax.swing.JMenu meMetodos;
     private javax.swing.JMenu mePresupuesto;
